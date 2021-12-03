@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Tab the button to get the information</h1>
+
+<button type="button" onclick="loadDoc()">Get info</button>
+
+<table id="table"></table>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET", "dom.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>To:</th><th>From:</th><th>Message:</th></tr>";
+  var x = xmlDoc.getElementsByTagName("cd");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("to")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("from")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("message")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+    
+  }
+  document.getElementById("table").innerHTML = table;
+}
+</script>
+
+</body>
+</html>

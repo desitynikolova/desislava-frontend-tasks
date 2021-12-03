@@ -1,0 +1,17 @@
+<catalog>
+<cd>
+<to>Mishele</to>
+<from>Milan</from>
+<message>Hello, Mishele.</message>
+</cd>
+<cd>
+<to>Peter</to>
+<from>Ivan</from>
+<message>Hello, Peter. How are you?</message>
+</cd>
+<cd>
+<to>Desislava</to>
+<from>Jhony</from>
+<message>Hello, Desislava.</message>
+</cd>
+</catalog>
